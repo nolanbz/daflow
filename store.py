@@ -18,8 +18,10 @@ def get_store_links(store_link):
     link_path = "//a[@class='a-link-normal']"
 
     try:
-        WebDriverWait(browser, 20).until(
-        EC.visibility_of_element_located((By.XPATH, link_path)))
+        # WebDriverWait(browser, 20).until(
+        # EC.visibility_of_element_located((By.XPATH, link_path)))
+
+        time.sleep(5)
 
         elements = browser.find_elements_by_xpath(link_path)
 
@@ -56,3 +58,6 @@ def get_store_links(store_link):
     print(response)
 
     return response
+
+print("yip")
+get_store_links("https://www.amazon.com/shop/tronicsfix")
