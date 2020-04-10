@@ -1,0 +1,8 @@
+selenium
+flask
+flask_restful
+gunicorn
+celery
+requests
+werkzeug
+flask_httpauth
