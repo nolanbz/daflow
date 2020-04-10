@@ -1,0 +1,4 @@
+#!/Users/nolan/Python/daflow/bin/python3
+
+import sel
+sel.main()
