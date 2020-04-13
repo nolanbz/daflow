@@ -30,7 +30,11 @@ def check_link(channel_id, video_id, youtube_link):
     if channel_id:
         if video_id:
             if youtube_link:
-                detected = link_present(youtube_link, "abunda")
+                response = link_present(youtube_link, "abunda")
+
+                detected = response["present"]
+                video_views = response["video_views"]
+                
                 payload = "Checking link"
             else:
                 payload = "missing link", 400
@@ -39,7 +43,7 @@ def check_link(channel_id, video_id, youtube_link):
     else:
         payload = "missing channel_id", 400
 
-    JSON = {"video_id": video_id, "channel_id": channel_id, "links_present": detected, "message":payload}
+    JSON = {"video_id": video_id, "channel_id": channel_id, "links_present": detected, "video_views": video_views, "message":payload}
 
 
     return JSON

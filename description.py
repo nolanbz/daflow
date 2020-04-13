@@ -54,7 +54,7 @@ def get_description_links(youtube_link, rinse_links):
             # Used for checking if links are present in description
             if rinse_links:
                 all_links = elementfilter.all_links(elements)
-                response = {"all_links": all_links}
+                response = {"all_links": all_links, "video_views": video_views}
                 browser.quit()
                 return response
 
@@ -81,10 +81,14 @@ def get_description_links(youtube_link, rinse_links):
 
 def link_present(youtube_link, keyword):
     
-    links = get_description_links(youtube_link, True)
+    response = get_description_links(youtube_link, True)
 
-    all_links = links["all_links"]
+    all_links = response["all_links"]
+
+    video_views = response["video_views"]
 
     present = elementfilter.present_link(all_links, keyword)
 
-    return present
+    nonce = {"present": present, "video_views": video_views}
+    
+    return nonce
