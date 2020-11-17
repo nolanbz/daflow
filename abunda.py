@@ -4,8 +4,8 @@ import json
 def abunda_convert(link, check_price):
 
     abunda_id = int()
-    # payload = "https://abunda-engine.herokuapp.com/amazon-link-handler?amz_link={}&speed=true".format(link)
-    payload = "https://abunda-engine.herokuapp.com/upload?amz_link={}&process_now=true&speed=true".format(link)
+    payload = "https://abunda-engine.herokuapp.com/amazon-link-handler?amz_link={}&speed=true".format(link)
+    # payload = "https://abunda-engine.herokuapp.com/upload?amz_link={}&process_now=true&speed=true".format(link)
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
     get_request = requests.get(payload, headers=headers)
 
